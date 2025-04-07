@@ -3,5 +3,6 @@
     "idf.openOcdConfigs": [
         "board/esp32s3-bridge.cfg"
     ],
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "cmake.sourceDirectory": "D:/BKU/CO3038/IoT_Lab_2/Lab_2/lib/ArduinoJson/src"
 }

@@ -53,16 +53,16 @@ DHT20 dht20;
 
 RPC_Response setLedSwitchState(const RPC_Data &data) {
     Serial.println("Received Switch state");
-    bool newState = data;
+    bool newState = data["KeyRPC"];
     Serial.print("Switch state change: ");
     Serial.println(newState);
     digitalWrite(LED_PIN, newState);
-    attributesChanged = true;
+    tb.sendAttributeData("state",newState);
     return RPC_Response("setLedSwitchValue", newState);
 }
 
 const std::array<RPC_Callback, 1U> callbacks = {
-  RPC_Callback{ "setLedSwitchValue", setLedSwitchState }
+  RPC_Callback{ "setState", setLedSwitchState }
 };
 
 void processSharedAttributes(const Shared_Attribute_Data &data) {
